@@ -1,0 +1,66 @@
+import random
+swg = ["s","w","g"]
+chances = 10
+used_chances = 0
+comp_points = 0
+human_points = 0
+print("                 <<<<<<<<<<<<<<<<<SNAKE WATER GUN>>>>>>>>>>>>>>>\n                  ")
+print("                 Enter s for snake\n                 w for water\n                 g for gun\n")
+while used_chances<chances:
+    swg_input = input("Choose snake or water or gun : ")
+    _random = random.choice(swg)
+    if swg_input == _random:
+        print("Tie!\n")
+    
+    # When user enter s
+    elif swg_input == "s" and _random == "w":
+        human_points = human_points+1
+        print(f"You choose Snake and Computer choose {_random}\n")
+        print("Congrats! You win 1 point\n")
+        print(f"Your score is {human_points} and Computer score is {comp_points}\n")
+        
+    elif swg_input == "s" and _random == "g":
+        comp_points = comp_points+1
+        print(f"You choose Snake and Computer choose {_random}\n")
+        print("Oops! Computer wins 1 point\n")
+        print(f"Your score is {human_points} and Computer score is {comp_points}\n")
+        
+    # When usere enter w
+    elif swg_input == "w" and _random == "s":
+        comp_points = comp_points+1
+        print(f"You choose Water and Computer choose {_random}\n")
+        print("Oops! Computer wins 1 point\n")
+        print(f"Your score is {human_points} and Computer score is {comp_points}")
+        
+    elif swg_input == "w" and _random == "g":
+        human_points = human_points+1
+        print(f"You choose Water and Computer choose {_random}\n")
+        print("Congrats! You win 1 point\n")
+        print(f"Your score is {human_points} and Computer score is {comp_points}\n")
+        
+    # When user enter g
+    elif swg_input == "g" and _random == "s":
+        human_points = human_points+1
+        print(f"You choose Gun and Computer choose {_random}\n")
+        print("Congrats! You win 1 point\n")
+        print(f"Your score is {human_points} and Computer points is {comp_points}\n")
+        
+    elif swg_input == "g" and _random == "w":
+        comp_points = comp_points+1
+        print(f"You choose Gun and Computer choose {_random}\n")
+        print("Oops! Computer wins 1 point\n")
+        print(f"Your score is {human_points} and Computer score is {comp_points}\n")
+   
+    else: 
+        print("You entered wrong input!\n")
+       
+    used_chances = used_chances+1
+    print(f"{chances-used_chances} chances left out of {chances}")    
+       
+print("Game over!\n")
+if comp_points==human_points:
+    print("Game tie!")
+elif comp_points>human_points:
+    print(f"Computer wins and its score is {comp_points}")
+else:
+    print(f"You wins and your score is {human_points}")
